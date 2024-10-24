@@ -137,6 +137,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({
+  'BufEnter',
+  'CursorHold',
+  'CursorHoldI',
+  'FocusGained',
+}, {
+  command = "if mode() != 'c' | checktime | endif ",
+  pattern = { '*' },
+})
+vim.api.nvim_create_autocmd({ 'FileChangedShellPost' }, {
+  command = 'echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None',
+  pattern = { '*' },
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'

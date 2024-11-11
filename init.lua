@@ -871,6 +871,7 @@ require('lazy').setup({
         'diff',
         'html',
         'javascript',
+        'just',
         'lua',
         'luadoc',
         'markdown',

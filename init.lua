@@ -113,13 +113,17 @@ vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 --vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 --vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-vim.keymap.set('n', '<C-j>', function()
-  vim.cmd.move '+1'
-end, { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', function()
-  vim.cmd.move '-2'
-end, { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', 'move -2', { desc = 'Move focus to the upper window' })
+--
+--vim.keymap.set('n', '<C-j>', function()
+--  vim.cmd.move '+1'
+--end, { desc = 'Swap line with the one below' })
+--vim.keymap.set('n', '<C-k>', function()
+--  vim.cmd.move '-2'
+--end, { desc = 'Swap line with the one above' })
+vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
 
 --- vim.cmd('echo 42')
 -- vim.cmd 'source ./after/syntax/python.vim'

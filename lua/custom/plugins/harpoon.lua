@@ -11,7 +11,7 @@ return {
     vim.keymap.set('n', '<leader>a', function()
       harpoon:list():add()
     end)
-    vim.keymap.set('n', '<C-h>', function()
+    vim.keymap.set('n', '<C-a>', function()
       harpoon:list():next { ui_nav_wrap = true }
     end)
   end,

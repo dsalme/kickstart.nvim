@@ -575,7 +575,17 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        pyright = {},
+        pyright = {
+          root_dir = require('lspconfig.util').root_pattern(
+            'pyrightconfig.json',  -- Prioritize pyrightconfig.json first
+            '.git',                -- Then .git
+            'pyproject.toml',      -- Then pyproject.toml
+            'setup.py',
+            'setup.cfg',
+            'requirements.txt',
+            'Pipfile'
+          ),
+        },
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --

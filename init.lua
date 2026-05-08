@@ -713,6 +713,8 @@ do
 
     stylua = {}, -- Used to format Lua code
 
+    terraform = {},
+
     -- Special Lua Config, as recommended by neovim help docs
     lua_ls = {
       on_init = function(client)
@@ -746,6 +748,7 @@ do
         },
       },
     },
+    tflint = {},
   }
 
   vim.pack.add {

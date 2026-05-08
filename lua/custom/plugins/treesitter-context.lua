@@ -1,9 +1,5 @@
-return {
-  'nvim-treesitter/nvim-treesitter-context',
-  dependencies = { 'nvim-treesitter/nvim-treesitter' },
-  config = function()
-    require('treesitter-context').setup {
-      line_numbers = true,
-    }
-  end,
+vim.pack.add { 'https://github.com/nvim-treesitter/nvim-treesitter-context' }
+
+require('treesitter-context').setup {
+  line_numbers = true,
 }

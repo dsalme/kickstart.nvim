@@ -912,6 +912,20 @@ do
   --  See `:help nvim-treesitter-intro`
 
   -- NOTE: You can also specify a branch or a specific commit
+  --
+  -- IMPORTANT: the `main` branch compiles parsers with the EXTERNAL `tree-sitter`
+  -- CLI (the old `master` branch shipped pre-generated sources and only needed a
+  -- C compiler). If the CLI is missing, opening nvim throws a cryptic error that
+  -- points at a parser build, NOT at the missing tool, e.g.:
+  --
+  --   [nvim-treesitter/install/typescript] error: Error during "tree-sitter build":
+  --   ... ENOENT: no such file or directory (cmd): 'tree-sitter'
+  --
+  -- Fix: install the CLI (see README "External Dependencies"). Quick options:
+  --   npm install -g tree-sitter-cli   |   cargo install tree-sitter-cli
+  --   sudo apt install tree-sitter-cli (Ubuntu/Debian)
+  -- Note: an npm/nvm-scoped install is only on PATH when that node version is
+  -- active; prefer a system/cargo install if nvim is launched outside that shell.
   vim.pack.add { { src = gh 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
   -- Ensure basic parsers are installed
